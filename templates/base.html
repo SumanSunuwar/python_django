@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title %}<title>Django base page</title>{% endblock %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+    <div class="container">
+        {% include "nav.html" %}
+        {% block content %}
+            This is block content
+        {% endblock %}
+    </div>
+    </body>
+    </html>

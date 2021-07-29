@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Main page</title>
+{% endblock %}
+
+{% block content %}
+<h2 class="heading_1">List of products</h2>
+<a type="button" class="btn btn-primary" href="{% url 'home:add_product' %}">Add Product</a>
+
+
+
+    <hr/>
+	{% if products %}
+  <div class="row">
+
+  {% for obj in products %}
+
+  <div class="col-sm-12 col-md-12 col-lg-4">
+    <div class="card">
+          {% if obj.Product_image %}
+			<img src="{{obj.Product_image.url }}" alt=""/>
+			{% else %}
+      			<img src="https://source.unsplash.com/random" alt=""/>
+			{% endif %}
+
+      <div class="card-body">
+        <h5 class="card-title">{{obj.name}}</h5>
+        <p class="card-text">{{obj.description}}</p>
+        <a type="button" class="btn btn-primary" href="{% url "home:edit_product" obj.id %}">Edit</a>
+      </div>
+    </div>
+  </div>
+  
+  {% endfor %}
+
+</div>
+        {% else %}
+        <p>No products</p>
+        {% endif %} 
+{% endblock %}
