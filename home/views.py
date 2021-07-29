@@ -1,5 +1,5 @@
 from django.http.response import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render, reverse
+from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.http import HttpResponse
 from .models import Product
 from home.forms import ProductForm
@@ -25,3 +25,7 @@ def edit_product(request, product_id):
 	return render(request, "form.html", {"form":form} )
 
 
+def delete_product(request, product_id):
+	product = get_object_or_404(Product, id=product_id)
+	product.delete()
+	return redirect(reverse("home:main"))
