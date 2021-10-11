@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'userprofile',
 ]
 
 MIDDLEWARE = [
@@ -126,6 +127,9 @@ MEDIA_ROOT = ""
 
 
 # Default primary key field type
+# LOGIN_URL = '/user/login'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/user/login'

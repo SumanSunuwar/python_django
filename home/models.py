@@ -20,13 +20,13 @@ class Product(models.Model):
 	description = models.TextField(null=True,blank=True)
 	Product_image = models.ImageField(upload_to="upload/product",null=True,blank=True)
 	seller = models.ForeignKey(Seller, on_delete=CASCADE, null=True, blank=True)
+	# is_for_sale = models.BooleanField(default=False)
 
 	created = models.DateTimeField(auto_now_add=True)
 	modified = models.DateTimeField(auto_now=True)
 
 	def __str__(self):
 		return self.name
-
 
 
 
